@@ -69,6 +69,7 @@ public class Get10K {
 	 * @param symbol
 	 */
 	public void Download10KbyCIK(String symbol, boolean isCurrent) {
+		String path = getAppPath();
 		GetURL gURL = new GetURL();
 		ArrayList<String> URLs = gURL.Get10kURLwithCIK(symbol, isCurrent);
 		Iterator<String> it = URLs.iterator();
@@ -94,11 +95,13 @@ public class Get10K {
 				url = str;
 			}
 			String ext = url.substring(index2);
-			String fileName = "./10K/" + CIK + "_" + year + ext;// + "_" + index
-																// + ext;
+			String fileName = path + "/10K/" + CIK + "_" + year + ext;// + "_" +
+			// index
+			// + ext;
 			DownLoad10K(url, fileName);
 			System.out.println(fileName);
 		}
+
 	}
 
 	/**
@@ -108,9 +111,10 @@ public class Get10K {
 	 * @param filename
 	 */
 	public void Download10KbyCIKList() {
-		String filename="stocksymbol";
 		try {
-			FileReader fr = new FileReader(filename);
+			String filename="stocksymbol";
+			String path = getAppPath();
+			FileReader fr = new FileReader(path + "/" + filename);
 			BufferedReader br = new BufferedReader(fr);
 			String str = br.readLine();
 			while (str != null) {
@@ -125,13 +129,17 @@ public class Get10K {
 		}
 	}
 
+	private String getAppPath() {
+		return "/Root/gonghan | WebCrawlerApp";
+	}
+
 	// Main
 	public static void main(String[] args) {
 		System.out.println("Start crawling from www.sec.gov...");
 		String CIK = "IBM"; // "ABIO"
 		Get10K g10K = new Get10K();
 		g10K.Download10KbyCIK(CIK, true);
-		//g10K.Download10KbyCIKList();
+		// g10K.Download10KbyCIKList();
 		// String symbol = "ABIO";
 		// String CIK = "IBM";
 		// Get10K g10K = new Get10K();
