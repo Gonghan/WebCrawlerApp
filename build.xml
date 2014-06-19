@@ -35,7 +35,8 @@
 				<include name="resources" />
 			</webinf>
 			<fileset dir="WebContent">
-				<include name="index.*" />
+				<include name="*" />
+				<include name="templates/*" />
 			</fileset>
 			<lib dir="WebContent/WEB-INF/lib" />
 			<classes dir="bin" />
