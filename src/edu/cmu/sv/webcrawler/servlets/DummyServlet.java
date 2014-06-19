@@ -22,7 +22,8 @@ public class DummyServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String filename="/Root/10k/stocksymbol";
+		String base=request.getSession().getServletContext().getRealPath("");
+		String filename=base+"/stocksymbol";
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 		String line="";
 		MongoHelper helper=new MongoHelper();
