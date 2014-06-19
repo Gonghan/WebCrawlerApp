@@ -130,7 +130,8 @@ public class Get10K {
 	}
 
 	private String getAppPath() {
-		return "/Root/gonghan\\ |\\ WebCrawlerApp";
+		//return "F:/workspace/BlueMix_workspace/WebCrawlerApp"
+		return "F:/workspace/BlueMix_workspace/WebCrawlerApp";
 	}
 
 	// Main

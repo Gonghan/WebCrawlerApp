@@ -27,5 +27,15 @@
 		<servlet-name>Crawler Servlet</servlet-name>
 		<url-pattern>/crawl</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Dummy Servlet</servlet-name>
+		<servlet-class>edu.cmu.sv.webcrawler.servlets.DummyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Dummy Servlet</servlet-name>
+		<url-pattern>/dummy</url-pattern>
+	</servlet-mapping>
 
 </web-app>

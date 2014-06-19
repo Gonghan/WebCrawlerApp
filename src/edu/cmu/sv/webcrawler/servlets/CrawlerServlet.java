@@ -28,7 +28,7 @@ public class CrawlerServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		// super.doGet(req, resp);
 		PrintWriter out = resp.getWriter();
-		out.println("done");
+		out.println("crawling");
 		Get10K get = new Get10K();
 		String companyname = req.getParameter("companyname");
 		if (companyname == null || companyname.isEmpty()) {

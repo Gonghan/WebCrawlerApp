@@ -17,7 +17,7 @@
 				&raquo;</a>
 		</p>
 	</div>
-
+	<a href="./dummy">dummy link</a>
 	<%@  include file="./templates/footer.jsp"%>
 </body>
 </html>
