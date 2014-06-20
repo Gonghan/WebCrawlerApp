@@ -38,4 +38,14 @@
 		<url-pattern>/dummy</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>Envs Servlet</servlet-name>
+		<servlet-class>edu.cmu.sv.webcrawler.servlets.EnvsServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Envs Servlet</servlet-name>
+		<url-pattern>/Envs</url-pattern>
+	</servlet-mapping>
+
 </web-app>

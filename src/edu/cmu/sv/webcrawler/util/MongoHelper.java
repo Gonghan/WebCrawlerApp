@@ -1,6 +1,8 @@
 package edu.cmu.sv.webcrawler.util;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -15,21 +17,35 @@ public class MongoHelper {
 	private boolean auth;
 
 	public MongoHelper() {
-		this.connect();
+		// check whether this app is on BlueMix
+		Map<String, String> env = System.getenv();
+		if (env.containsKey("VCAP_SERVICES")) {
+			connect();
+		} else {
+			localConnect();
+		}
 		auth = false;
 
+	}
+
+	private void localConnect() {
+		try {
+			Mongo mongo = new Mongo("localhost", 27017);
+			db = mongo.getDB(MongoConstants.DATABASE);
+			collection = db.getCollection(MongoConstants.COLLECTIONS);
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void connect() {
 		try {
 			Mongo mongo = new Mongo(MongoConstants.HOST, MongoConstants.PORT);
-			// Mongo mongo=new Mongo("localhost",27017);
 			db = mongo.getDB(MongoConstants.DATABASE);
 			auth = db.authenticate(MongoConstants.USERNAME,
 					MongoConstants.PASSWORD.toCharArray());
-			this.collection = db.getCollection(MongoConstants.COLLECTIONS);
+			collection = db.getCollection(MongoConstants.COLLECTIONS);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
