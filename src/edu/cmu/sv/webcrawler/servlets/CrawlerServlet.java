@@ -25,8 +25,6 @@ public class CrawlerServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// super.doGet(req, resp);
 		PrintWriter out = resp.getWriter();
 		out.println("crawling");
 		Get10K get = new Get10K();
@@ -36,14 +34,6 @@ public class CrawlerServlet extends HttpServlet {
 		} else {
 			get.Download10KbyCIK(companyname, true);
 		}
-		// Thread thread1 = new Thread(new Runnable() {
-		// public void run() {
-		// get.Download10KbyCIKList();
-		// }
-		//
-		// });
-		
-
 	}
 
 }

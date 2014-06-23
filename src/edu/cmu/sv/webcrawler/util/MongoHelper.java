@@ -60,7 +60,7 @@ public class MongoHelper {
 	public ArrayList<String> getAllSymbols() {
 		ArrayList<String> list = new ArrayList<String>();
 		DBCollection cs = db.getCollection("companysymbols");
-		DBCursor cursor = collection.find();
+		DBCursor cursor = cs.find();
 		try {
 			while (cursor.hasNext()) {
 				DBObject obj = cursor.next();

@@ -32,14 +32,11 @@
 	<target name="build-war" depends="build-project">
 		<war destfile="webStarterApp.war" webxml="WebContent/WEB-INF/web.xml">
 			<webinf dir="WebContent/WEB-INF">
-				<include name="resources" />
+				
 			</webinf>
 			<fileset dir="WebContent">
 				<include name="*" />
 				<include name="templates/*" />
-			</fileset>
-			<fileset dir=".">
-				<include name="stocksymbol"/>
 			</fileset>
 			<lib dir="WebContent/WEB-INF/lib" />
 			<classes dir="bin" />
