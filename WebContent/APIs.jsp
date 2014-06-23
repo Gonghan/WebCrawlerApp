@@ -8,9 +8,28 @@
 <%@  include file="./templates/includes.jsp"%></head>
 <body>
 	<%@  include file="./templates/header.jsp"%>
+	
 	<!-- Main part -->
-	<div class="jumbotron">
-		<h1>APIs</h1>
+	<h1>APIs</h1>
+	<div class="apis">
+		<table class="table table-striped table-hover table-bordered table-striped">
+			<tbody>
+				<tr>
+					<td>Method</td>
+					<td>URL</td>
+					<td>Description</td>
+					<td>Example</td>
+				</tr>
+				
+				<tr  class ="success">
+					<td>GET</td>
+					<td><a target ="_blank" href="<%=basepath+"/api/symbols" %>"><%=basepath+"/api/symbols" %></a></td>
+					<td>Get symbols of all companies and return JSON file.</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<%@  include file="./templates/footer.jsp"%>
 </body>
 </html>

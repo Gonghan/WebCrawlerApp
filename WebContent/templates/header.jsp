@@ -14,7 +14,7 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href=<%=basepath+"/index.jsp" %>>Index</a></li>
+            <li><a href=<%=basepath+"/index.jsp" %>>Index</a></li>
             <li><a href=<%=basepath+"/crawler.jsp" %>>Crawler</a></li>
             <li><a href=<%=basepath+"/results.jsp" %>>Results</a></li>
             <li><a href=<%=basepath+"/MongoDB.jsp" %>>MongoDB</a></li>
