@@ -12,9 +12,9 @@ import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 
 public class MongoHelper {
-	private DBCollection collection;
-	private DB db;
-	private boolean auth;
+	private static DBCollection collection;
+	private static DB db;
+	private static boolean auth;
 
 	public MongoHelper() {
 		// check whether this app is on BlueMix
@@ -28,7 +28,7 @@ public class MongoHelper {
 
 	}
 
-	private void localConnect() {
+	private static void localConnect() {
 		try {
 			Mongo mongo = new Mongo("localhost", 27017);
 			db = mongo.getDB(MongoConstants.DATABASE);
@@ -38,7 +38,7 @@ public class MongoHelper {
 		}
 	}
 
-	private void connect() {
+	private static void connect() {
 		try {
 			Mongo mongo = new Mongo(MongoConstants.HOST, MongoConstants.PORT);
 			db = mongo.getDB(MongoConstants.DATABASE);
@@ -75,7 +75,15 @@ public class MongoHelper {
 		return list;
 	}
 
-	public DBCollection getCollection() {
+	public static DBCollection getCollection() {
+		if (collection == null) {
+			Map<String, String> env = System.getenv();
+			if (env.containsKey("VCAP_SERVICES")) {
+				connect();
+			} else {
+				localConnect();
+			}
+		}
 		return collection;
 	}
 

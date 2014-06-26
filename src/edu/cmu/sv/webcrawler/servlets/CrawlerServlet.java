@@ -1,15 +1,12 @@
 package edu.cmu.sv.webcrawler.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import edu.cmu.sv.webcrawler.services.Get10K;
 
 @WebServlet("/crawl")
 public class CrawlerServlet extends HttpServlet {
@@ -25,15 +22,7 @@ public class CrawlerServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		PrintWriter out = resp.getWriter();
-		out.println("crawling");
-		Get10K get = new Get10K();
-		String companyname = req.getParameter("companyname");
-		if (companyname == null || companyname.isEmpty()) {
-			get.Download10KbyCIKList();
-		} else {
-			get.Download10KbyCIK(companyname, true);
-		}
+		req.getRequestDispatcher("./error.jsp").forward(req, resp);
 	}
 
 }

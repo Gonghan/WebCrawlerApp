@@ -4,5 +4,10 @@
 
 #crawlerform {
 	padding-top: 50px;
-	width : 500px;
+	width: 500px;
+}
+
+.apis .disabled {
+	pointer-events: none;
+	cursor: default;
 }
