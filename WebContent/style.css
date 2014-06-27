@@ -7,7 +7,7 @@
 	width: 500px;
 }
 
-.apis .disabled {
+.apis a{
 	pointer-events: none;
 	cursor: default;
 }

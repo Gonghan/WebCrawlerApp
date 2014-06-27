@@ -9,12 +9,10 @@
 <body>
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
-	<h1>MongoDB</h1>
-	<h2>TO DO</h2>
+	<div class="container">
+			
 	
-	
-	
-	
+	</div>
 	<%@  include file="./templates/footer.jsp"%>
 </body>
 </html>

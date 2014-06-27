@@ -1,8 +1,8 @@
 applications:
 - disk_quota: 1024M
-  host: CMUWebCrawler
+  host: gonghan
   name: WebCrawlerApp
   path: webStarterApp.war
-  domain: ng.bluemix.net
+  domain: mybluemix.net
   instances: 1
   memory: 512M
