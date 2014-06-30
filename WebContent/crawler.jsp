@@ -16,12 +16,33 @@
 				<input type="text" id="companyname" class="form-control"  placeholder="empty = crawl all companies"></input>
 			</div>
 			<div class="form-group">
-			      <button type="submit" class="btn btn-default">Crawl now!</button>
+			      <button id="begincrawl" type="submit" class="btn btn-default">Crawl now!</button>
 		  	</div>
 			
 		</form>
 	</div>
+	<div>
+		<p class="bg-info" id="crawl-info"></p>
+	</div>
 	
+	<script>
+		$("#begincrawl").click(function(event){
+			event.preventDefault();
+			var symbol=$("#companyname").val();
+			console.log(symbol);
+			var output=$("#crawl-info");
+			$.ajax(
+				{
+					url:"/crawler/api/symbols",
+					success:function(result){
+						output.text(result);
+					}
+				
+				}
+			
+			);
+		});
+	</script>
 	
 	
 	<%@  include file="./templates/footer.jsp"%>

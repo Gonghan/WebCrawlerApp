@@ -9,7 +9,8 @@
 <body>
 	<%@  include file="./templates/header.jsp"%>
 	<%
-		String host = "http://gonghan.mybluemix.net";
+		String url = request.getRequestURL().toString();
+		String host = url.substring(0, url.length() - 9);
 	%>
 
 	<!-- Main part -->
@@ -26,57 +27,58 @@
 
 				<tr class="success">
 					<td>GET</td>
-					<td><a target="_blank" href="<%=basepath + "/api/symbols"%>"><%=host + "/api/symbols"%></a></td>
+					<td><%=host + "/api/symbols"%></td>
 					<td>Get symbols of all companies and return JSON file.</td>
 				</tr>
 
 				<tr class="success">
 					<td>GET</td>
-					<td><a target="_blank" href="<%=basepath + "/api/crawl/"%>"><%=host + "/api/crawl/"%></a></td>
+					<td><%=host + "/api/crawl/"%></td>
 					<td>Begin to crawl the record from all companies' symbols.</td>
 				</tr>
 
 				<tr class="success">
 					<td>GET</td>
-					<td><a target="_blank"
-						href="<%=basepath + "/api/crawl/symbol"%>"><%=host + "/api/crawl/symbol"%></a></td>
+					<td><%=host + "/api/crawl/symbol"%></td>
 					<td>Begin to crawl the record from a given company symbol.</td>
 				</tr>
 
 				<tr class="success">
 					<td>GET</td>
-					<td><a target="_blank"
-						href="<%=basepath + "/api/results/symbol"%>"><%=host + "/api/results/symbol"%></a></td>
+					<td><%=host + "/api/results/symbol"%></td>
 					<td>Show the results of a given company.</td>
 				</tr>
 
 				<tr class="success">
 					<td>GET</td>
-					<td><a target="_blank"
-						href="<%=basepath + "/api/results/symbol?year=yyyy"%>"><%=host + "/api/results/symbol?year=yyyy"%></a></td>
+					<td><%=host + "/api/results/symbol?year=yyyy"%></td>
 					<td>Show the results of a given company in a year.</td>
 				</tr>
 
 				<tr class="success">
 					<td>DELETE</td>
-					<td><a target="_blank"
-						href="<%=basepath + "/api/results/symbol"%>"><%=host + "/api/results/symbol"%></a></td>
+					<td><%=host + "/api/results/symbol"%></td>
 					<td>DELETE the results of a given company.</td>
 				</tr>
 
 				<tr class="success">
 					<td>DELETE</td>
-					<td><a target="_blank"
-						href="<%=basepath + "/api/results/symbol?year=yyyy"%>"><%=host + "/api/results/symbol?year=yyyy"%></a></td>
+					<td><%=host + "/api/results/symbol?year=yyyy"%></td>
 					<td>DELETE the results of a given company in a given year.</td>
 				</tr>
 
 				<tr class="danger">
 					<td>GET</td>
-					<td><a target="_blank"
-						href="<%=basepath + "/api/results/keywords"%>"><%=host + "/api/results/keywords"%></a></td>
-					<td>Begin to crawl the record from a given company symbol.</td>
+					<td><%=host + "/api/keywords"%></td>
+					<td>Show all keywords.</td>
 				</tr>
+				
+				<tr class="danger">
+					<td>GET</td>
+					<td><%=host + "/api/keywords/symbol"%></td>
+					<td>Show keywords of a given company.</td>
+				</tr>
+				
 			</tbody>
 		</table>
 	</div>
