@@ -10,41 +10,70 @@
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="container">
-		<form id="crawlerform" class="form-horizontal" role="form" action="<%=request.getContextPath()+"/crawl" %>" method="post">
+		<form id="crawlerform" class="form-horizontal" role="form"
+			action="<%=request.getContextPath() + "/crawl"%>" method="post">
 			<div class="form-group">
-				<label for="companyname">Crawl records of a company</label>
-				<input type="text" id="companyname" class="form-control"  placeholder="empty = crawl all companies"></input>
+				<label for="companyname">Crawl records of a company</label> <input
+					type="text" id="companyname" class="form-control col-sm-4"
+					placeholder="empty = crawl all companies"></input>
 			</div>
 			<div class="form-group">
-			      <button id="begincrawl" type="submit" class="btn btn-default">Crawl now!</button>
-		  	</div>
-			
+				<button id="begincrawl" type="submit" class="btn btn-default">Crawl
+					now!</button>
+			</div>
 		</form>
 	</div>
 	<div>
 		<p class="bg-info" id="crawl-info"></p>
 	</div>
-	
+	<form class="form-horizontal" role="form">
+		<label>Delete the records of a company</label>
+		<div class="form-group">
+			<input id="deletesymbol" type="text" class="form-control col-sm-4"
+				placeholder="The symbol of the company you want to delete" />
+			<button id="deleterecord" class="btn btn-default">Delete</button>
+		</div>
+	</form>
+	<div>
+		<p class="bg-info" id="crawl-delete"></p>
+	</div>
 	<script>
-		$("#begincrawl").click(function(event){
-			event.preventDefault();
-			var symbol=$("#companyname").val();
-			console.log(symbol);
-			var output=$("#crawl-info");
-			$.ajax(
-				{
-					url:"/crawler/api/symbols",
-					success:function(result){
-						output.text(result);
-					}
-				
-				}
-			
-			);
-		});
+		$("#begincrawl")
+				.click(
+						function(event) {
+							event.preventDefault();
+							var symbol = $("#companyname").val();
+							var output = $("#crawl-info");
+							var crawlurl = "/crawler/api/crawl/" + symbol;
+							$
+									.ajax({
+										url : crawlurl,
+										success : function(data) {
+											output
+													.text("Finished crawl the risk factors of the company "
+															+ symbol);
+										}
+									});
+						});
+
+		$("#deleterecord").click(
+				function(event) {
+					event.preventDefault();
+					var symbol = $("#deletesymbol").val();
+					var output = $("#crawl-delete");
+					var deleteurl = "/crawler/api/results/" + symbol;
+					$.ajax({
+						type : "DELETE",
+						url : deleteurl,
+						success : function(data) {
+							output.text("Deleted the records of the company "
+									+ symbol);
+						}
+					});
+				});
 	</script>
-	
-	
+
+
 	<%@  include file="./templates/footer.jsp"%>
 </body>
 </html>
