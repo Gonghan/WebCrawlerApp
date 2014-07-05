@@ -135,6 +135,7 @@ public class Record {
 		DBCollection db = MongoHelper.getCollection();
 		BasicDBObject doc = new BasicDBObject();
 		doc.put("symbol", symbol);
+		doc.put("year", year);
 		DBCursor cursor = db.find(doc);
 		try {
 			while (cursor.hasNext()) {

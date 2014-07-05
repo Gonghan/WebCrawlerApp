@@ -57,7 +57,7 @@
 					event.preventDefault();
 					var symbol = $("#symbol").val();
 					var year = $("#year option:selected").text();
-					var crawlurl = "/crawler/api/results/" + symbol;
+					var crawlurl = "/api/results/" + symbol;
 					if (year != "all") {
 						crawlurl = crawlurl + "/?year=" + year;
 					}

@@ -11,7 +11,7 @@
 	<!-- Main part -->
 	<div class="container">
 		<form id="crawlerform" class="form-horizontal" role="form"
-			action="<%=request.getContextPath() + "/crawl"%>" method="post">
+			action="/crawl" method="post">
 			<div class="form-group">
 				<label for="companyname">Crawl records of a company</label> <input
 					type="text" id="companyname" class="form-control col-sm-4"
@@ -44,7 +44,7 @@
 							event.preventDefault();
 							var symbol = $("#companyname").val();
 							var output = $("#crawl-info");
-							var crawlurl = "/crawler/api/crawl/" + symbol;
+							var crawlurl = "/api/crawl/" + symbol;
 							$
 									.ajax({
 										url : crawlurl,
@@ -61,7 +61,7 @@
 					event.preventDefault();
 					var symbol = $("#deletesymbol").val();
 					var output = $("#crawl-delete");
-					var deleteurl = "/crawler/api/results/" + symbol;
+					var deleteurl = "/api/results/" + symbol;
 					$.ajax({
 						type : "DELETE",
 						url : deleteurl,
