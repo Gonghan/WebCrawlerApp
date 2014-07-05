@@ -21,22 +21,22 @@
 				<button id="begincrawl" type="submit" class="btn btn-default">Crawl
 					now!</button>
 			</div>
+			<div>
+				<p class="bg-info" id="crawl-info"></p>
+			</div>
+			<label>Delete the records of a company</label>
+			<div class="form-group">
+				<input id="deletesymbol" type="text" class="form-control col-sm-4"
+					placeholder="The symbol of the company you want to delete" />
+				<button id="deleterecord" class="btn btn-default">Delete</button>
+			</div>
+			<div>
+				<p class="bg-info" id="crawl-delete"></p>
+			</div>
 		</form>
 	</div>
-	<div>
-		<p class="bg-info" id="crawl-info"></p>
-	</div>
-	<form class="form-horizontal" role="form">
-		<label>Delete the records of a company</label>
-		<div class="form-group">
-			<input id="deletesymbol" type="text" class="form-control col-sm-4"
-				placeholder="The symbol of the company you want to delete" />
-			<button id="deleterecord" class="btn btn-default">Delete</button>
-		</div>
-	</form>
-	<div>
-		<p class="bg-info" id="crawl-delete"></p>
-	</div>
+
+
 	<script>
 		$("#begincrawl")
 				.click(
@@ -50,7 +50,7 @@
 										url : crawlurl,
 										success : function(data) {
 											output
-													.text("Finished crawl the risk factors of the company "
+													.text("Crawled the risk factors of the company "
 															+ symbol);
 										}
 									});
