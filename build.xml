@@ -46,6 +46,9 @@
 			<webinf dir="WebContent/WEB-INF">
 
 			</webinf>
+			<fileset dir=".">
+				<include name="keywords.txt" />
+			</fileset>
 			<fileset dir="WebContent">
 				<include name="*" />
 				<include name="templates/*" />

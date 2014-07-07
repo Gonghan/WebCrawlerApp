@@ -57,6 +57,12 @@
 
 				<tr class="success">
 					<td>DELETE</td>
+					<td><%=host + "/api/results/"%></td>
+					<td>DELETE all results.</td>
+				</tr>
+				
+				<tr class="success">
+					<td>DELETE</td>
 					<td><%=host + "/api/results/symbol"%></td>
 					<td>DELETE the results of a given company.</td>
 				</tr>

@@ -39,6 +39,14 @@ public class ResultsResource {
 		Record.remove(symbol, year);
 		return Response.status(200).entity("Remove a result with the symbol "+symbol).build();
 	}
+	
+	//delete all records
+	@DELETE
+	public Response removeAllResult(){
+		Record.removeAll();
+		return Response.status(200).entity("Remove all result.").build();
+		
+	}
 }
 
 class Records {

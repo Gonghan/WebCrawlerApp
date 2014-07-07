@@ -1,6 +1,7 @@
 package edu.cmu.sv.webcrawler.apis;
 
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -8,8 +9,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import edu.cmu.sv.webcrawler.services.DummyKeywordsService;
-import edu.cmu.sv.webcrawler.services.KeywordsService;
+import edu.cmu.sv.webcrawler.models.Keywords;
 
 @Path("/keywords")
 public class KeywordResource {
@@ -17,23 +17,38 @@ public class KeywordResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public KeywordsJSON getAllKeywords() {
-		KeywordsService ks = new DummyKeywordsService();
+		Keywords ks=new Keywords();
 		return new KeywordsJSON(ks.getKeywords());
 	}
 
 	@GET
 	@Path("/{param}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public KeywordsJSON getKeywordsBySymbol(@PathParam("param") String symbol) {
-		KeywordsService ks = new DummyKeywordsService();
-		return new KeywordsJSON(ks.getKeywordsBySymbol(symbol));
+	public KeywordBySymbolJSON getKeywordsBySymbol(@PathParam("param") String symbol) {
+		Keywords ks=new Keywords();	
+		return new KeywordBySymbolJSON(ks.getKeywords(symbol));
 	}
 }
 
-class KeywordsJSON {
-	List<String> keywords;
+class KeywordBySymbolJSON{
+	Map<String,Integer>keywords;
+	public KeywordBySymbolJSON(Map<String,Integer>keywords){
+		this.keywords=keywords;
+	}
+	/**
+	 * @return the keywords
+	 */
+	public Map<String, Integer> getKeywords() {
+		return keywords;
+	}
+	
+	
+}
 
-	public KeywordsJSON(List<String> keywords) {
+class KeywordsJSON {
+	Set<String> keywords;
+
+	public KeywordsJSON(Set<String> keywords) {
 		super();
 		this.keywords = keywords;
 	}
@@ -41,7 +56,7 @@ class KeywordsJSON {
 	/**
 	 * @return the keywords
 	 */
-	public List<String> getKeywords() {
+	public Set<String> getKeywords() {
 		return keywords;
 	}
 
@@ -49,7 +64,7 @@ class KeywordsJSON {
 	 * @param keywords
 	 *            the keywords to set
 	 */
-	public void setKeywords(List<String> keywords) {
+	public void setKeywords(Set<String> keywords) {
 		this.keywords = keywords;
 	}
 }

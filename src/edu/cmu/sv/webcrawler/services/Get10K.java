@@ -170,7 +170,7 @@ public class Get10K {
 		if (s_10K == null || s_10K.isEmpty()) {
 			return;
 		}
-		Record record = new Record(s_10K, symbol, year);
+		Record record = new Record(s_10K, symbol, year,null);
 		record.save();
 	}
 

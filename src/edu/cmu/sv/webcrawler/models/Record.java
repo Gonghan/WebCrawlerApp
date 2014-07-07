@@ -2,12 +2,16 @@ package edu.cmu.sv.webcrawler.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
+import edu.cmu.sv.webcrawler.services.KeywordExtractor;
+import edu.cmu.sv.webcrawler.services.KeywordsService;
 import edu.cmu.sv.webcrawler.util.MongoHelper;
 
 public class Record {
@@ -16,11 +20,29 @@ public class Record {
 	String year;
 	String riskFactor;
 	String symbol;
+	Map<String, Integer> keywords;
 
-	public Record(String riskFactor, String symbol, String year) {
+	/**
+	 * @return the keywords
+	 */
+	public Map<String, Integer> getKeywords() {
+		return keywords;
+	}
+
+	/**
+	 * @param keywords
+	 *            the keywords to set
+	 */
+	public void setKeywords(Map<String, Integer> keywords) {
+		this.keywords = keywords;
+	}
+
+	public Record(String riskFactor, String symbol, String year,
+			Map<String, Integer> keywords) {
 		this.year = year;
 		this.riskFactor = riskFactor;
 		this.symbol = symbol;
+		this.keywords = keywords;
 	}
 
 	/**
@@ -105,10 +127,21 @@ public class Record {
 	public boolean save() {
 		DBCollection db = MongoHelper.getCollection();
 		BasicDBObject doc = new BasicDBObject();
+		KeywordsService ks = new KeywordExtractor(riskFactor);
+		Map<String, Integer> map = ks.getKeywordsBySymbol();
+		BasicDBList list = new BasicDBList();
+		for (String s : map.keySet()) {
+			DBObject tmp = new BasicDBObject();
+			tmp.put(s, map.get(s));
+			list.add(tmp);
+			System.out.println(s + "=>" + map.get(s));
+		}
 		doc.put("symbol", symbol);
 		doc.put("year", year);
 		doc.put("riskFactor", riskFactor);
+		doc.put("keywords", list);
 		db.insert(doc);
+		this.keywords = map;
 		return true;
 	}
 
@@ -123,7 +156,9 @@ public class Record {
 				DBObject obj = cursor.next();
 				String year = (String) obj.get("year");
 				String riskFactor = (String) obj.get("riskFactor");
-				records.add(new Record(riskFactor, symbol, year));
+				BasicDBList keywords = (BasicDBList) obj.get("keywords");
+				Map<String, Integer> map = Keywords.getMap(keywords);
+				records.add(new Record(riskFactor, symbol, year, map));
 			}
 		} catch (Exception e) {
 		}
@@ -141,7 +176,9 @@ public class Record {
 			while (cursor.hasNext()) {
 				DBObject obj = cursor.next();
 				String riskFactor = (String) obj.get("riskFactor");
-				records.add(new Record(riskFactor, symbol, year));
+				BasicDBList keywords = (BasicDBList) obj.get("keywords");
+				Map<String, Integer> map = Keywords.getMap(keywords);
+				records.add(new Record(riskFactor, symbol, year, map));
 			}
 		} catch (Exception e) {
 		}
@@ -155,6 +192,12 @@ public class Record {
 		if (year != null && !year.isEmpty()) {
 			doc.put("year", year);
 		}
+		db.remove(doc);
+	}
+
+	public static void removeAll() {
+		DBCollection db = MongoHelper.getCollection();
+		BasicDBObject doc = new BasicDBObject();
 		db.remove(doc);
 	}
 }

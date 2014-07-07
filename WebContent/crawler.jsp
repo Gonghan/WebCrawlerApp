@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<label for="companyname">Crawl records of a company</label> <input
 					type="text" id="companyname" class="form-control col-sm-4"
-					placeholder="empty = crawl all companies"></input>
+					placeholder="Empty = crawl all companies"></input>
 			</div>
 			<div class="form-group">
 				<button id="begincrawl" type="submit" class="btn btn-default">Crawl
@@ -27,7 +27,7 @@
 			<label>Delete the records of a company</label>
 			<div class="form-group">
 				<input id="deletesymbol" type="text" class="form-control col-sm-4"
-					placeholder="The symbol of the company you want to delete" />
+					placeholder="Empty = delete all records" />
 				<button id="deleterecord" class="btn btn-default">Delete</button>
 			</div>
 			<div>

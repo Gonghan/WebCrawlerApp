@@ -87,4 +87,7 @@ public class MongoHelper {
 		return collection;
 	}
 
+	public DB getDb(){
+		return db;
+	}
 }
