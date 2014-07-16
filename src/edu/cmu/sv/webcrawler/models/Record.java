@@ -21,6 +21,7 @@ public class Record {
 	String riskFactor;
 	String symbol;
 	Map<String, Integer> keywords;
+	Map<String, Integer> categories;
 
 	/**
 	 * @return the keywords
