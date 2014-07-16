@@ -73,16 +73,22 @@
 					<td>DELETE the results of a given company in a given year.</td>
 				</tr>
 
-				<tr class="danger">
+				<tr class="success">
 					<td>GET</td>
 					<td><%=host + "/api/keywords"%></td>
 					<td>Show all keywords.</td>
 				</tr>
 				
-				<tr class="danger">
+				<tr class="success">
 					<td>GET</td>
 					<td><%=host + "/api/keywords/symbol"%></td>
 					<td>Show keywords of a given company.</td>
+				</tr>
+				
+				<tr class="success">
+					<td>GET</td>
+					<td><%=host + "/api/category"%></td>
+					<td>Show the categories of all keywords.</td>
 				</tr>
 				
 			</tbody>
