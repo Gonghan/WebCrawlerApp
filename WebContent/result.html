@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" src="./canvasjs.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  var data = '{"keywords":{"stockholder":6,"harm":2,"loss":10,"threat":1,"regulations":10,"disruption":3,"difficult":4,"capital":1,"adverse":8,"affect":14,"compete":1,"acquisition":3,"stock":10,"personnel":5,"fail":8,"interest":3,"raw materials":2,"difficulties":1,"terrorist":1,"litigation":2,"license":2,"interest rate":2,"supplier":5,"ineffective":1,"challenges":2,"political":5,"intellectual property":4,"liquidity risk":1,"international":1,"revenue growth":1,"disrupt":3,"cost":6,"distributors":4,"economic":6,"depends on":1,"product":17,"fluctuations":2,"failure":7,"challenge":2,"tax matter":2,"reporting":2,"competitive":7,"economic conditions":1,"infrastructure":3,"decrease":1,"fluctuation":2,"credit risk":1}}'
+  var obj = jQuery.parseJSON(data);
+  var risks = obj.keywords
+  console.log(risks);
+  var show = '';
+  var size = 0;
+  console.log(size);
+  for(key in risks){
+    size++;
+    if(show == ''){
+      show = '{label:' + key + ', y:' + risks[key] + '}';
+    }else{
+      show = show +  ', {label:' + key + ', y:' + risks[key] + '}';  
+    }   
+  }
+  console.log(show);
+  console.log(size);
+
+  var dataPoints = [];
+  for(key in risks){
+    dataPoints.push({label: key, y: risks[key]});
+  }
+
+   window.onload = function () {
+        var chart1 = new CanvasJS.Chart("chartContainer1", {
+
+      title:{
+        text: "Risk Factors Keywords Histogram"              
+      },
+      data: [//array of dataSeries              
+        { //dataSeries object
+
+         /*** Change type "column" to "bar", "area", "line" or "pie"***/
+         type: "column",
+         dataPoints: dataPoints
+       }
+       ]
+     });
+
+    var chart2 = new CanvasJS.Chart("chartContainer2",
+    {
+      title:{
+        text: "Risk Factors Keywords Components PieChart",
+        fontFamily: "Impact",
+        fontWeight: "normal"
+      },
+
+      legend:{
+        verticalAlign: "bottom",
+        horizontalAlign: "center"
+      },
+      data: [
+      {
+        //startAngle: 45,
+       indexLabelFontSize: 20,
+       indexLabelFontFamily: "Garamond",
+       indexLabelFontColor: "darkgrey",
+       indexLabelLineColor: "darkgrey",
+       indexLabelPlacement: "outside",
+       type: "doughnut",
+       dataPoints: dataPoints
+     }
+     ]
+   });
+    chart1.render();
+    chart2.render();
+  }
+  </script>
+ 
+
+</head>
+<body>
+  <div id="chartContainer1" style="height: 300px; width: 100%;">
+  </div>
+
+  <div id="chartContainer2" style="height: 300px; width: 100%;">
+  </div>
+  <script>
+       var data = '{"keywords":{"stockholder":6,"harm":2,"loss":10,"threat":1,"regulations":10,"disruption":3,"difficult":4,"capital":1,"adverse":8,"affect":14,"compete":1,"acquisition":3,"stock":10,"personnel":5,"fail":8,"interest":3,"raw materials":2,"difficulties":1,"terrorist":1,"litigation":2,"license":2,"interest rate":2,"supplier":5,"ineffective":1,"challenges":2,"political":5,"intellectual property":4,"liquidity risk":1,"international":1,"revenue growth":1,"disrupt":3,"cost":6,"distributors":4,"economic":6,"depends on":1,"product":17,"fluctuations":2,"failure":7,"challenge":2,"tax matter":2,"reporting":2,"competitive":7,"economic conditions":1,"infrastructure":3,"decrease":1,"fluctuation":2,"credit risk":1}}'
+      var obj = jQuery.parseJSON(data);
+     // alert( obj.name === "John" );
+  </script>
+
+  <script>
+  $.ajax({ 
+    type: 'GET', 
+    url: 'http://gonghan.mybluemix.net/api/keywords/IBM?year=2014', 
+    dataType: 'json',
+    success: function (data) { 
+      
+      console.log(data);
+
+        $.each(data, function(index, element) {
+            $('body').append($('<div>', {
+                text: index
+            }));
+        });
+    }
+});
+  </script>
+</body>
+</html>
