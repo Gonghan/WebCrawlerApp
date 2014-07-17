@@ -44,15 +44,20 @@ public class Categories {
 	/*
 	 * { finacial: 5 law: 7 }
 	 */
-	public Categories(Map<String, Integer> map) {
+	public Categories(Map<String, Integer> keywordsMap) {
+		categories = new HashMap<String, List<String>>();
+		MongoHelper helper = new MongoHelper();
+		this.cate = helper.getDb().getCollection("categories");
+		readFromDb();
 		this.map = new HashMap<String, Integer>();
 		for (String key : categories.keySet()) {
 			map.put(key, 0);
 		}
-		for (String key : map.keySet()) {
+		for (String key : keywordsMap.keySet()) {
 			String cateKey = getCateKey(key);
+			System.out.println(cateKey);
 			if(cateKey!=null){
-				map.put(cateKey, map.get(cateKey)+1);
+				map.put(cateKey, map.get(cateKey)+keywordsMap.get(key));
 			}
 		}
 	}
@@ -61,6 +66,7 @@ public class Categories {
 		for (String cateKey : this.categories.keySet()) {
 			List<String> list = categories.get(cateKey);
 			if (list.contains(key)) {
+				System.out.println(cateKey);
 				return cateKey;
 			}
 		}
