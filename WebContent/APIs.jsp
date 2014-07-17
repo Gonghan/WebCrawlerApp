@@ -81,8 +81,8 @@
 				
 				<tr class="success">
 					<td>GET</td>
-					<td><%=host + "/api/keywords/symbol"%></td>
-					<td>Show keywords of a given company.</td>
+					<td><%=host + "/api/keywords/symbol?year=yyyy"%></td>
+					<td>Show keywords of a given company in a given year.</td>
 				</tr>
 				
 				<tr class="success">
