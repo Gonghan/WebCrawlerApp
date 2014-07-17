@@ -24,6 +24,8 @@
 		<pathelement location="WebContent/WEB-INF/lib/jettison-1.1.jar" />
 		<pathelement location="WebContent/WEB-INF/lib/jericho-html-3.3.jar" />
 		<pathelement location="WebContent/WEB-INF/lib/jersey-client-1.18.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/java-json.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/json-simple-1.1.1.jar" />
 	</path>
 	<target name="init">
 		<mkdir dir="bin" />
@@ -48,6 +50,7 @@
 			</webinf>
 			<fileset dir=".">
 				<include name="keywords.txt" />
+				<include name="category.json" />
 			</fileset>
 			<fileset dir="WebContent">
 				<include name="*" />

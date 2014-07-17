@@ -1,6 +1,5 @@
 package edu.cmu.sv.webcrawler.services;
 
-import java.io.*;
 import java.util.*;
 
 import edu.cmu.sv.webcrawler.models.Keywords;
@@ -21,7 +20,6 @@ public class KeywordExtractor implements KeywordsService{
 		keywordExtracted = new HashMap<String, KeywordInfo>();
 		keywords=key.getKeywords();
 		this.getKeywords();
-
 	}
 
 	private void getSentences(String risk) {

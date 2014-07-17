@@ -49,9 +49,10 @@ public class Keywords {
 		collection.remove(doc);
 	}
 
-	public Map<String, Integer> getKeywords(String symbol) {
+	public Map<String, Integer> getKeywords(String symbol,String year) {
 		BasicDBObject doc = new BasicDBObject();
 		doc.put("symbol", symbol);
+		doc.put("year", year);
 		DBCursor cursor = MongoHelper.getCollection().find(doc);
 		Map<String, Integer> map = null;
 		while (cursor.hasNext()) {
