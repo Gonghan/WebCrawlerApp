@@ -91,6 +91,12 @@
 					<td>Show the categories of all keywords.</td>
 				</tr>
 				
+				<tr class="success">
+					<td>GET</td>
+					<td><%=host + "/api/category/symbol?year=yyyy"%></td>
+					<td>Show the categories of one company in a given year.</td>
+				</tr>
+				
 			</tbody>
 		</table>
 	</div>
