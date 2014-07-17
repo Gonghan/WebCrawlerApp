@@ -1,10 +1,12 @@
 {
 	"Poor financial condition risks":[
+		"loss",
 		"net loss",
 		"loss of business",
 		"negative cash flow"
 	],
 	"Funding risks":[
+		"capital",
 		"raise capital",
 		"funding risk",
 		"capital resource",
@@ -16,13 +18,16 @@
 		"borrowing cost",
 		"interest expense"
 	],
-	"Merger & Acquisition risks	":[
+	"Merger and Acquisition risks":[
+		"acquisition",
+		"merger",
 		"acquisition strategy",		
 		"combinations and acquisitions",
 		"property acquisition",
 		"business acquisition"
 	],
 	"Regulation changes":[
+		"regulation",
 		"environmental regulation",
 		"laws or regulations",
 		"laws and regulations",
@@ -47,14 +52,26 @@
 		"environmental liabilit",
 		"general liabilit",
 		"future liabilit",
-		"tax liabilit",
+		"tax liabilit"
 	],
 	"Catastrophes":[
+		"catastrophe",
+		"terrorist",
+		"uninsurable",
+		"hurricane",
+		"earthquake",
+		"flood",
+		"tsunami",
+		"war",
+		"windstorm",
 		"natural disaster",
 		"catastrophic nature",
-		"not .. insurable",
+		"not .. insurable"
 	],
 	"Macroeconomic risks":[
+		"economic",
+		"macroeconomic",
+		"recession",
 		"economic condition",
 		"economic situation",
 		"economic slowdown",
@@ -63,9 +80,10 @@
 		"economic downturn",
 		"economic recovery",
 		"interest rate",
-		"market fluctuation",		
+		"market fluctuation"		
 	],
 	"International risks":[
+		"international",
 		"international operations",
 		"international sales",
 		"exchange rate",
@@ -73,18 +91,21 @@
 		"emerging markets",
 		"international laws",
 		"foreign economies",
-		"international financial",
+		"international financial"
 	],
 	"Suppliers risks":[
+		"supplier",
 		"depend on ¡­ supplier",
 		"a limited number of suppliers",
 		"sole supplier",
 		"single supplier",
 		"single source supplier",
 		"single-source supplier",
-		"alternative supplier",
+		"alternative supplier"
 	],
 	"Input prices risks":[
+		"cost",
+		"expense",
 		"raw materials cost",
 		"raw material cost",
 		"cost of raw material",
@@ -107,10 +128,12 @@
 		"research and development cost"	
 	],
 	"Concentration on few large customers":[
+		"customer",
 		"key customer",
 		"large customer"
 	],
 	"Competition risks":[
+		"competition",
 		"highly competitive",
 		"less competitive",
 		"our competitors include",
@@ -130,18 +153,23 @@
 		"competitive pressure"
 	],
 	"Industry is cyclical":[
+		"cyclical",
 		"market .. cyclical",
 		"cyclical ¡­ industry"
 	],
 	"Volatile demand and financial results":[
+		"volatile",
+		"unpredictable",
+		"demand",
 		"consumer demand¡­differ",
 		"consumer demand¡­fluctuate",
 		"fluctuation  ...  demand",
 		"spending pattern",
 		"demand ... decrease",
 		"changing customer preference"
-	]
+	],
 	"Volatile stock price risks":[
+		"stock",
 		"price of our common stock ¡­ fluctuate",
 		"price of our common stock ¡­ volatile",
 		"stock price ¡­  volatile",
@@ -153,6 +181,7 @@
 		"price ¡­ stock ¡­ fall"
 	],
 	"New product introduction risks":[
+		"product",
 		"new product",
 		"develop product",
 		"innovative product",
@@ -160,6 +189,9 @@
 		"new commercial product"
 	],
 	"Downstream risks":[
+		"distributor",
+		"retailers",
+		"intermediaries",
 		"performance of  ...  distributor",
 		"rely ... distributor",
 		"dependent upon ... distributor",
@@ -178,16 +210,20 @@
 		"change ... retailer"
 	],
 	"Potential defects in products":[
+		"warranty",
 		"product liabilit",
 		"warranty liabilit",
 		"warranty policy"
 	],
 	"Restructure Risks":[
+		"restructure",
 		"restructuring charge",
 		"bankruptcy protection",
 		"restructuring"
-	]
+	],
 	"Shareholder¡¯s interest risks":[
+		"stockholder",
+		"interest",
 		"controlling stockholder",
 		"conflict of interest",
 		"conflicts of interest"
@@ -200,17 +236,25 @@
 		"patent ... issued/application/pending/protect/proprietary"
 	],
 	"Potential/Ongoing Lawsuits":[
+		"litigation",
+		"claims",
+		"legislation",
+		"laws",
+		"judgements",
+		"jurisdictions",
 		"litigation expenses",
 		"foreign laws"
 	],
 	"Infrastructure risks":[
+		"infrastructure",
 		"information technology system",
 		"security system",
 		"integrating personnel"
 	],
 	"Human resource risks":[
+		"personnel",
 		"human resource",
 		"labor cost",
 		"employee benefits plans"
-	],
+	]
 }
