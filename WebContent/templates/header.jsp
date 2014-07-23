@@ -17,9 +17,10 @@
             <li><a href=<%=basepath+"/index.jsp" %>>Index</a></li>
             <li><a href=<%=basepath+"/crawler.jsp" %>>Crawler</a></li>
             <li><a href=<%=basepath+"/results.jsp" %>>Results</a></li>
-            <li><a href=<%=basepath+"/MongoDB.jsp" %>>MongoDB</a></li>
+            <li><a href=<%=basepath+"/comparison.jsp" %>>Comparison</a></li>
+            <!-- <li><a href=<%=basepath+"/MongoDB.jsp" %>>MongoDB</a></li>-->
             <li><a href=<%=basepath+"/APIs.jsp" %>>APIs</a></li>
-            <li><a href=<%=basepath+"/Envs" %>>Envs</a></li>
+            <!--  <li><a href=<%=basepath+"/Envs" %>>Envs</a></li>-->
           </ul>
         </div><!--/.nav-collapse -->
       </div>

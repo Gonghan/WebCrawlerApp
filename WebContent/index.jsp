@@ -11,13 +11,16 @@
 	<!-- Main part -->
 	<div class="jumbotron">
 		<h1>Web Crawlers</h1>
-		<p>Some descriptions about this project.</p>
+		<p>Use Public Big Data to retrieve and analyze the "Risk Factors"
+			for US publicly traded companies. Using publicly available data
+			sources (such as 10-K) create profiles for the companies that segment
+			them based on their "risk factors" and "needs".</p>
 		<p>
 			<a href="#" class="btn btn-primary btn-lg" role="button">Tutorial
 				&raquo;</a>
 		</p>
 	</div>
-	<a href="./dummy">dummy link</a>
+	<!-- <a href="./dummy">dummy link</a> -->
 	<%@  include file="./templates/footer.jsp"%>
 </body>
 </html>
