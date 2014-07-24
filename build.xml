@@ -54,6 +54,7 @@
 			</fileset>
 			<fileset dir="WebContent">
 				<include name="*" />
+				<include name="img/*" />
 				<include name="templates/*" />
 			</fileset>
 			<lib dir="WebContent/WEB-INF/lib" />

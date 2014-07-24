@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Web Crawler</title>
+<title>Risk Advisor</title>
 <%@  include file="./templates/includes.jsp"%></head>
 <body>
 	<%@  include file="./templates/header.jsp"%>

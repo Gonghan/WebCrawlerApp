@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Web Crawler</title>
+<title>Risk Advisor</title>
 <%@  include file="./templates/includes.jsp"%></head>
 <body>
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="container">
-		<label>Results</label>
+		<h2>Show the results of a company in a given year.</h2>
 		<form class="form-horizontal" role="form">
 			<div class="form-group">
 				<div class="col-sm-4">
-					<label for="symbol" class="control-label">Symbol</label> <input
+					<label for="symbol" class="control-label">Stock symbol</label> <input
 						type="text" class="form-control" id="symbol"
 						placeholder="Input the company symbol you want to search" />
 				</div>
@@ -31,7 +31,7 @@
 					</select>
 				</div>
 			</div>
-			<button id="searchrecords" class="btn btn-default">Search</button>
+			<button id="searchrecords" class="btn btn-default">Show results!</button>
 		</form>
 	</div>
 

@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Web Crawler</title>
+<title>Risk Advisor</title>
 <%@  include file="./templates/includes.jsp"%></head>
 <body>
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="container">
+		<h2>Compare the financial risks of two companies in the recent four years.</h2>
 		<form class="form-horizontal" role="form">
 			<div class="form-group">
 				<div class="col-sm-4">

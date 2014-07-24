@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Web Crawler</title>
+<title>Risk Advisor</title>
 <%@  include file="./templates/includes.jsp"%></head>
 <body>
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="jumbotron">
-		<h1>Web Crawlers</h1>
+		<h1>Company Risk Advisor</h1>
 		<p>Use Public Big Data to retrieve and analyze the "Risk Factors"
 			for US publicly traded companies. Using publicly available data
 			sources (such as 10-K) create profiles for the companies that segment
