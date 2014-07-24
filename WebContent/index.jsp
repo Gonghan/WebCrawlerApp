@@ -11,10 +11,10 @@
 	<!-- Main part -->
 	<div class="jumbotron">
 		<h1>Company Risk Advisor</h1>
-		<p>Use Public Big Data to retrieve and analyze the "Risk Factors"
-			for US publicly traded companies. Using publicly available data
-			sources (such as 10-K) create profiles for the companies that segment
-			them based on their "risk factors" and "needs".</p>
+		<p>Risk Advisor use Public Big Data to retrieve and analyze the
+			"Risk Factors" for US publicly traded companies. Publicly available
+			data sources (such as 10-K) are retrieved to create profiles for the
+			companies and segment them based on their "risk factors" and "needs."</p>
 		<p>
 			<a href="#" class="btn btn-primary btn-lg" role="button">Tutorial
 				&raquo;</a>
