@@ -10,7 +10,8 @@
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="container">
-		<h2>Compare the financial risks of two companies in the recent four years.</h2>
+		<h3>Compare the financial risks of two companies in the recent
+			four years.</h3>
 		<form class="form-horizontal" role="form">
 			<div class="form-group">
 				<div class="col-sm-4">
@@ -28,14 +29,69 @@
 			<button type="button" class="btn btn-primary">Compare</button>
 		</form>
 	</div>
+
+	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
 	<%@  include file="./templates/footer.jsp"%>
 	<script>
-		$('button').on('click',function(event){
+		$('button').on('click', function(event) {
 			event.preventDefault();
-			var A=$('#companyA').val();
-			var B=$('#companyB').val();
-			console.log(A+B);
+			var A = $('#companyA').val();
+			var B = $('#companyB').val();
+			var categoryurl = "/api/category/";
+			var categoryA = categoryurl + A + "?year=2013";
+			var categoryB = categoryurl + B + "?year=2013";
+			//for sync
+			var finished = 0;
+			var dataA = null;
+			var dataB = null;
+			$.ajax({
+				url : categoryA,
+				success : function(dataA) {
+					$.ajax({
+						url: categoryB,
+						success:function(dataB){
+							showComparison(dataA, dataB, A, B);
+						}
+					});
+				}
+			});
 		});
+		function showComparison(dataA, dataB, A, B) {
+			var dpA = convert(dataA);
+			var dpB = convert(dataB);
+			var chart = new CanvasJS.Chart("chartContainer", {
+				title : {
+					text : "Financial Risk Comparison"
+				},
+				data : [ {
+					legendText : A,
+					type : "stackedBar",
+					showInLegend: "true",
+					dataPoints : dpA
+				}, {
+					legendText : B,
+					type : "stackedBar",
+					showInLegend: "true",
+					dataPoints : dpB
+				} ]
+			});
+
+			chart.render();
+		}
+		//convert a key=>value into x:? y:?
+		function convert(data) {
+			var dataPoints = [];
+			for (key in data) {
+				if (data[key] <= 0) {
+					continue;
+				}
+				dataPoints.push({
+					label : key,
+					y : data[key]
+				});
+			}
+			return dataPoints;
+		}
 	</script>
 </body>
 </html>

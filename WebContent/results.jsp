@@ -10,7 +10,7 @@
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="container">
-		<h2>Show the results of a company in a given year.</h2>
+		<h3>Show the results of a company in a given year.</h3>
 		<form class="form-horizontal" role="form">
 			<div class="form-group">
 				<div class="col-sm-4">
@@ -95,7 +95,7 @@
 			//var obj = jQuery.parseJSON(data);
 			//var risks=data.records[0].keywords;
 			var risks=data;
-			console.log(risks);
+			//console.log(risks);
 
 			var dataPoints = [];
 			for (key in risks) {
