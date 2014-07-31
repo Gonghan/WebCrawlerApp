@@ -1,7 +1,7 @@
 applications:
 - disk_quota: 1024M
-  host: gonghan
-  name: gonghan
+  host: risk-analysis
+  name: risk-analysis
   path: webStarterApp.war
   domain: mybluemix.net
   instances: 1
