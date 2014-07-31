@@ -10,8 +10,7 @@
 	<%@  include file="./templates/header.jsp"%>
 	<!-- Main part -->
 	<div class="container">
-		<h3>Compare the financial risks of two companies in the recent
-			four years.</h3>
+		<h3>Compare the financial risks of two companies.</h3>
 		<form class="form-horizontal" role="form">
 			<div class="form-group">
 				<div class="col-sm-4">
@@ -23,6 +22,17 @@
 					<label for="companyB" class="control-label">Company B</label> <input
 						type="text" class="form-control" id="companyB"
 						placeholder="Enter the symbol of the second company." />
+				</div>
+				<div class="form-group">
+				<div class="col-sm-4">
+					<label for="year" class="control-label">Year</label> 
+						<select id="year" class="form-control">
+							<option>2014</option>
+							<option>2013</option>
+							<option>2012</option>
+							<option>2011</option>
+						</select>
+					</div>
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
