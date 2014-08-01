@@ -149,7 +149,7 @@ Contains the raw data(riskFactor) and the year.
         {
             "companyName": null,
             "year": "2013",
-            "riskFactor": "item 1a. risk factors:         downturn in economic environment and corporate it spending budgets could impact the ......",
+            "riskFactor": "item 1a. risk factors:         downturn  spending budgets could impact the ......",
             "symbol": "IBM",
             "keywords": {
                 "new regulation": 1,
@@ -163,4 +163,41 @@ Contains the raw data(riskFactor) and the year.
 
 ### API
 
+I use [Jersey](https://jersey.java.net/) to build the restful APIs.
+
+This is a sample about the API resource. You can find this code snippet in the edu.cmu.sv.webcrawler.apis.ResultsResource.java
+
+```
+@Path("/results")
+public class ResultsResource {
+```
+@Path provides a relative URI path.
+
+```
+@GET
+	@Path("/{param}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Records getResult(@PathParam("param") String symbol,
+			@QueryParam("year") String year) {
+ 		Records records = new Records();
+ 		List<Record> list = null;
+ 		if (year == null || year.isEmpty()) {
+ 			list = Record.search(symbol);
+ 		} else {
+ 			list = Record.search(symbol, year);
+ 		}
+ 		records.setRecords(list);
+ 		return records;
+	}
+```
+This function gets one param as the symbol and a query string as the year. A sample url which will redirect to this function:
+
+```
+api/results/IBM?year=2013
+```
+The return format is JSON. You don't need to create a JSON object manually. What you need to do is to define the data format in the models package.
+
 ### Servlet
+All servlets are in the edu.cmu.sv.webcrawler.servlets package. In fact, I use them for very limited functions. It's a good practice to build API layer and UI layer independently. Then use JavaScript to connect them together. In the next steps, I will remove all servlets and build more APIs instead.
+
+
