@@ -84,4 +84,51 @@ If you want to use a new account or create a new database.
 
 ## Components
 
+### UI
+
+#### index.jsp
+
+Show the basic information about this project.
+
+#### crawler.jsp
+
+Provide a form to crawl data or delete data.
+
+#### comparison.jsp
+
+Provide a comparison between the finanical risks of two companies.
+
+#### results.jsp
+
+Show the details financial risks of a given company.
+
+#### APIs.jsp
+
+Give a table of all available APIs.
+
+### Model
+
+#### Category
+
+Define the risk of a company in terms of categories.
+
+Data structure
+```
+{
+    "Funding risks": 1,
+    "Concentration on few large customers": 0,
+    "Competition risks": 2,
+    "Downstream risks": 0,
+    "Catastrophes": 1,
+    "Macroeconomic risks": 3,
+}
+```
+
+#### Keywords
+
+
+### API
+
+### Servlet
+
 ## APIs
