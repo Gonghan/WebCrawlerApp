@@ -126,9 +126,41 @@ Data structure
 
 #### Keywords
 
+Define the keywords and frequencies of a company.
+```
+{
+    "keywords": {
+        "new regulation": 1,
+        "economic condition": 1,
+        "emerging markets": 1,
+        "foreign laws": 1,
+        "intellectual property": 1,
+    }
+}
+```
+
+#### Record
+
+Contains the raw data(riskFactor) and the year.
+
+```
+{
+    "records": [
+        {
+            "companyName": null,
+            "year": "2013",
+            "riskFactor": "item 1a. risk factors:         downturn in economic environment and corporate it spending budgets could impact the ......",
+            "symbol": "IBM",
+            "keywords": {
+                "new regulation": 1,
+                "economic condition": 1,
+                "emerging markets": 1
+            }
+        }
+    ]
+}
+```
 
 ### API
 
 ### Servlet
-
-## APIs
