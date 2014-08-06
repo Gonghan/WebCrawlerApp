@@ -16,7 +16,7 @@
 			data sources (such as 10-K) are retrieved to create profiles for the
 			companies and segment them based on their "risk factors" and "needs."</p>
 		<p>
-			<a href="#" class="btn btn-primary btn-lg" role="button">Tutorial
+			<a href="./tutorial.jsp" class="btn btn-primary btn-lg" role="button">Tutorial
 				&raquo;</a>
 		</p>
 	</div>
