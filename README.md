@@ -200,4 +200,85 @@ The return format is JSON. You don't need to create a JSON object manually. What
 ### Servlet
 All servlets are in the edu.cmu.sv.webcrawler.servlets package. In fact, I use them for very limited functions. It's a good practice to build API layer and UI layer independently. Then use JavaScript to connect them together. In the next steps, I will remove all servlets and build more APIs instead.
 
+### MongoDB and Schema
 
+There are four collections in the MongoDB: **categories**, **companysymbols**, **keywords**, **webcrawler**. To access to the collections, make sure that you have already created the database. **Database creation can be done manually only.**
+
+#### categories
+
+There is only one document in this collection. The document is the same as the json file 'catogories.json' which is located in the root directory of the project.
+
+````
+{
+    "Funding risks": [
+        "capital",
+        "raise capital",
+    ],
+    "Concentration on few large customers": [
+        "customer",
+        "key customer",
+        "large customer"
+    ]
+}
+
+````
+
+#### companysymbols
+
+This collection contains 3637 records. Each record has one symbol.
+
+````
+{
+    "_id": {
+        "$oid": "53cd61868f6491b7c901a635"
+    },
+    "symbol": "NWSA"
+}
+{
+    "_id": {
+        "$oid": "53cd61868f6491b7c901a636"
+    },
+    "symbol": "FUBC"
+}
+````
+
+#### keywords
+
+This collection contains 142 records. Each record has one keyword.
+
+````
+{
+    "_id": {
+        "$oid": "53cd62318f640941ecabdb9f"
+    },
+    "value": "net loss"
+}
+{
+    "_id": {
+        "$oid": "53cd62318f640941ecabdba0"
+    },
+    "value": "loss of business"
+}
+````
+
+#### webcrawler
+
+This is the main collection and the place where all raw data is stored.
+
+```
+{
+    "records": [
+        {
+            "companyName": null,
+            "year": "2013",
+            "riskFactor": "item 1a. risk factors:         downturn  spending budgets could impact the ......",
+            "symbol": "IBM",
+            "keywords": {
+                "new regulation": 1,
+                "economic condition": 1,
+                "emerging markets": 1
+            }
+        }
+    ]
+}
+```
