@@ -29,7 +29,7 @@
 			</div>
 			<div class="panel-body">
 				<ul class="list-unstyled">
-					<li>Advisor: Jia Zhang, CMU
+					<li>Advisor: Jia Zhang, CMU, jia.zhang@west.cmu.edu
 						<p>An Associate Research Professor in the area of Software
 							Engineering at Carnegie Mellon University Silicon Valley
 							campus.</p>
@@ -45,8 +45,8 @@
 			</div>
 			<div class="panel-body">
 				<ul class="list-unstyled">
-					<li>Joe Zhou, IBM</li>
-					<li>Matt Callery, IBM</li>
+					<li>Joe Zhou, IBM, jzhou@us.ibm.com</li>
+					<li>Matt Callery, IBM, mcallery@us.ibm.com</li>
 				</ul>
 			</div>
 		</div>
