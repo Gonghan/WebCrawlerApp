@@ -42,7 +42,7 @@ ant
   * Go to the directory of your tomcat.
   * Go to your_tomcat/conf
   * Open server.xml
-  * Add this line into the <host> tag.
+  * Add this line into the host tag.
   
   ```
   <Context docBase="your_workspace/WebCrawlerApp/webStarterApp.war" path="/" reloadable="true"/>
